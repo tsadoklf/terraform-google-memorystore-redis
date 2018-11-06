@@ -37,7 +37,7 @@ export REDIS_REGION="europe-west1"
 export RESERVED_IP_RANGE=$(gcloud redis instances describe $REDIS_INSTANCE_ID --region=$REDIS_REGION \
         | grep reservedIpRange | awk '{print $2}')
 
-# you can get the Redis host and port number from the Terraform module's outputs, 
+# You can get the Redis host and port number from the Terraform module's outputs, 
 # from the Cloud Console or by running the following `gcloud` commands
 
 # export REDIS_HOST_IP="10.0.0.4"
@@ -49,10 +49,10 @@ export REDIS_HOST_IP=$(gcloud redis instances describe $REDIS_INSTANCE_ID --regi
 export REDIS_PORT=$(gcloud redis instances describe $REDIS_INSTANCE_ID --region=$REDIS_REGION \
         | grep port | awk '{print $2}')
 
-# connecet to the GKE cluster
+# Connect to the GKE cluster
 gcloud container clusters get-credentials $CLUSTER_NAME --zone $CLUSTER_ZONE --project $PROJECT_ID
 
-# deploy k8s-custom iptables
+# Deploy k8s-custom iptables
 git clone https://github.com/bowei/k8s-custom-iptables.git
 cd k8s-custom-iptables/
 TARGETS="RESERVED_IP_RANGE" ./install.sh
