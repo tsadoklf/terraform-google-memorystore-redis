@@ -13,7 +13,5 @@ resource "google_redis_instance" "redis" {
 
     region                  = "${var.region}"
     location_id             = "${var.zone}"
-    alternative_location_id = "${var.alternative_zone}"
-   
-    # reserved_ip_range     = "192.168.0.0/29"
+    alternative_location_id = "${var.alt_zone}"
 }
