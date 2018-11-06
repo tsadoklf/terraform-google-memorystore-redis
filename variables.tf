@@ -31,7 +31,7 @@ variable "zone" {
     description  = "The zone where the instance will be provisioned. If not provided, the service will choose a zone for the instance. For STANDARD_HA tier, instances will be created across two zones for protection against zonal failures. If [alternativeLocationId] is also provided, it must be different from [locationId]."
     default      = ""
 }
-variable "alternative_zone" {
+variable "alt_zone" {
     type         = "string"
     description  = "Only applicable to STANDARD_HA tier which protects the instance against zonal failures by provisioning it across two zones. If provided, it must be a different zone from the one provided in [locationId]."
     default      = ""
