@@ -57,7 +57,7 @@ git clone https://github.com/bowei/k8s-custom-iptables.git
 cd k8s-custom-iptables/
 TARGETS="RESERVED_IP_RANGE" ./install.sh
 
-# Test the connection from the GKE cluster to the Redis instance
+# (Optional) Test the connection from the GKE cluster to the Redis instance
 # by deploying BusyBox to the cluster and using it's shell and telnet to connect to the Redis instance 
 kubectl run -i --tty busybox --image=busybox -- sh
 
