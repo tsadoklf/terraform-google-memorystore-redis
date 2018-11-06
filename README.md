@@ -9,6 +9,8 @@ module "redis" {
     name         = "my-redis"
     display_name = "My Redis instance - created by Terraform module"
     
+    tier         = "STANDARD_HA"
+    
     region       = "europe-west1"
     zone         = "europe-west1-b"
     alt_zone     = "europe-west1-c"
