@@ -34,17 +34,17 @@ export CLUSTER_ZONE="europe-west1-b"
 export REDIS_INSTANCE_ID="my-redis" 
 export REDIS_REGION="europe-west1"
 
-
 export RESERVED_IP_RANGE=$(gcloud redis instances describe $REDIS_INSTANCE_ID --region=$REDIS_REGION \
         | grep reservedIpRange | awk '{print $2}')
-        
-export REDIS_HOST_IP=$(gcloud redis instances describe $REDIS_INSTANCE_ID --region=$REDIS_REGION \
-        | grep host | awk '{print $2}')
 
-# you can get the Redis host and port from the Terraform module's outputs, 
+# you can get the Redis host and port number from the Terraform module's outputs, 
 # from the Cloud Console or by running the following `gcloud` commands
+
 # export REDIS_HOST_IP="10.0.0.4"
 # export REDIS_PORT="6379"
+
+export REDIS_HOST_IP=$(gcloud redis instances describe $REDIS_INSTANCE_ID --region=$REDIS_REGION \
+        | grep host | awk '{print $2}')
 
 export REDIS_PORT=$(gcloud redis instances describe $REDIS_INSTANCE_ID --region=$REDIS_REGION \
         | grep port | awk '{print $2}')
@@ -67,7 +67,3 @@ telnet $REDIS_HOST_IP $REDIS_PORT
 # Ping Redis to get '+PONG' response
 PING 
 ```
-
-
-
-
