@@ -7,6 +7,11 @@ variable "display_name" {
     description  = "An arbitrary and optional user-provided name for the instance."
     default      = ""
 }
+variable "redis_version" {
+    type         = "string"
+    description  = "he version of Redis software. Updating the version will perform an upgrade/downgrade to the new version. Currently, the supported values are REDIS_3_2 for Redis 3.2."
+    default      = "REDIS_3_2"
+}
 variable "tier" {
     type         = "string"
     description  = "The service tier of the instance: 'BASIC' - standalone instance, 'STANDARD_HA' - highly available primary/replica instances"
@@ -35,11 +40,6 @@ variable "alt_zone" {
     type         = "string"
     description  = "Only applicable to STANDARD_HA tier which protects the instance against zonal failures by provisioning it across two zones. If provided, it must be a different zone from the one provided in [locationId]."
     default      = ""
-}
-variable "redis_version" {
-    type         = "string"
-    description  = "he version of Redis software. Updating the version will perform an upgrade/downgrade to the new version. Currently, the supported values are REDIS_3_2 for Redis 3.2."
-    default      = "REDIS_3_2"
 }
 
 
