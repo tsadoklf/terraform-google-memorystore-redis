@@ -1,5 +1,9 @@
 # Google Cloud Platform (GCP) MemoryStore (Redis) Terraform Module
-Terraform module to create a MemoryStore instance on Google Cloud Platform (GCP).
+Terraform module to create a Cloud MemoryStore for Redis instance on Google Cloud Platform (GCP).
+
+Cloud Memorystore for Redis is a fully managed Redis service for the Google Cloud Platform. Applications running on Google Cloud Platform can achieve extreme performance by leveraging the highly scalable, available, secure Redis service without the burden of managing complex Redis deployments.
+
+See [Cloud Memorystore for Redis Documentation](https://cloud.google.com/memorystore/docs/redis/)
 
 ## Usage
 
