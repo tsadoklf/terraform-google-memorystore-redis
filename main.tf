@@ -2,29 +2,18 @@
 # https://www.terraform.io/docs/providers/google/r/redis_instance.html
 #
 resource "google_redis_instance" "redis" {
-    depends_on              = ["google_compute_network.network"]
+    name                    = "${var.name}"
+    display_name            = "${var.display_name}"
 
-    name                    = "${var.env_name}-redis"
-    display_name            = "${var.env_name}-redis: created by Terraform"
+    redis_version           = "${var.redis_version}"
+    tier                    = "${var.tier}"
+    memory_size_gb          = "${var.memory_size_gb}"
 
-    # tier
-    #
-    # The service tier of the instance. Must be one of these values:
-    #   BASIC:          standalone instance
-    #   STANDARD_HA:    highly available primary/replica instances
-    #
-    tier                    = "STANDARD_HA"
-    memory_size_gb          = 1
-
-    authorized_network      = "${google_compute_network.network.self_link}"
+    authorized_network      = "${var.network}"
 
     region                  = "${var.region}"
-    location_id             = "europe-west1-b"
-    alternative_location_id = "europe-west1-c"
-
-    redis_version           = "REDIS_3_2"
+    location_id             = "${var.zone}"
+    alternative_location_id = "${var.alternative_zone}"
+   
     # reserved_ip_range     = "192.168.0.0/29"
-
 }
-
-
